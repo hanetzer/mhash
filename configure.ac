@@ -1,9 +1,11 @@
 dnl Process this file with autoconf to produce a configure script.
 AC_PREREQ(2.59)
 AC_INIT(MHASH, 0.9.9, mhash-devel@sourceforge.net)
+AC_CONFIG_MACRO_DIRS([m4])
+AC_CONFIG_AUX_DIR([build-aux])
 AC_CANONICAL_TARGET
 AC_CONFIG_SRCDIR([lib/mhash.c])
-AM_INIT_AUTOMAKE
+AM_INIT_AUTOMAKE([foreign subdir-objects])
 
 AC_DEFINE([MHASH_VERSION], PROGRAM_VERSION, "MHash Version")
 AC_CONFIG_HEADER([include/mutils/mhash_config.h])
