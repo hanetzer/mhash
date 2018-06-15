@@ -361,7 +361,7 @@ MHASH mhash_init_int(__const hashid type)
 }
 
 /* plaintext should be a multiple of the algorithm's block size */
-
+WIN32DLL_DEFINE
 mutils_boolean mhash(MHASH td, __const void *plaintext, mutils_word32 size)
 {
 	
@@ -740,10 +740,3 @@ WIN32DLL_DEFINE MHASH mhash_restore_state_mem(void* _mem)
 		mutils_free(ret);
 		return(MHASH_FAILED);
 }
-
-#if defined(WIN32) || defined (__CYGWIN__)
-WIN32DLL_DEFINE int main (void)
-{
-       /* empty main function to avoid linker error (see cygwin FAQ) */
-}
-#endif

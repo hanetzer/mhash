@@ -49,8 +49,6 @@ dnl Miscellaneous checks
 
 AC_CONST
 
-AC_LIBTOOL_WIN32_DLL
-
 AM_PROG_LIBTOOL
 
 AC_TYPE_SIZE_T

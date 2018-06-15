@@ -25,7 +25,7 @@ MISCELLANEOUS = haval.c mhash_haval.h gosthash.c mhash_gost.h \
 libmhash_la_SOURCES = $(FRAMEWORK) $(KEYGEN) $(CRC) $(MD_SERIES) \
 			$(SHA_SERIES) $(TIGER) $(MISCELLANEOUS)
 
-libmhash_la_LDFLAGS = -version-info 2:1
+libmhash_la_LDFLAGS = -version-info 2:1 -no-undefined
 
 EXTRA_DIST = libmhash.sym
 
