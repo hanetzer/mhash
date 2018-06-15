@@ -1,0 +1,10 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+includedir=@includedir@
+
+Name: mhash
+Description: An easy way to access strong hashes such as MD5, SHA1 and other algorithms
+Version: @VERSION@
+Libs: -L${libdir} -lmhash
+Cflags: -I${includedir}

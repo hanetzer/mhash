@@ -30,6 +30,8 @@ AC_PROG_CXX
 AC_PROG_GCC_TRADITIONAL
 AC_PROG_INSTALL
 AC_PROG_LN_S
+AX_REQUIRE_DEFINED([PKG_INSTALLDIR])
+PKG_INSTALLDIR
 
 dnl Check Make characteristics
 AC_PROG_MAKE_SET
@@ -201,6 +203,7 @@ AC_ARG_ENABLE(whirlpool,
 AC_DEFINE(ENABLE_WHIRLPOOL, 1, "Whirlpool Algorithm"))
 
 AC_CONFIG_FILES([Makefile
+		 mhash.pc
 		 mhash.spec
 		 include/Makefile
 		 doc/Makefile

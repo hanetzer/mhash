@@ -1,7 +1,8 @@
 #AUTOMAKE_OPTIONS = foreign
 ACLOCAL_AMFLAGS = -I m4
 SUBDIRS = include lib doc src
-EXTRA_DIST = mhash.spec.in mhash.spec
+EXTRA_DIST = mhash.pc.in mhash.pc mhash.spec.in mhash.spec
+pkgconfig_DATA = mhash.pc
 USE_MHASH_CONFIG = yes
 
 ChangeLog:

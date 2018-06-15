@@ -21,6 +21,7 @@ include/mutils/mhash_config.h.in
 install-sh
 libtool
 ltmain.sh
+mhash.pc
 mhash.spec
 mhash_config.h
 missing
