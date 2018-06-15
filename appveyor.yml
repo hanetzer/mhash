@@ -1,0 +1,39 @@
+version: 0.9.9.9.{build}
+
+image:
+- Visual Studio 2015
+- Visual Studio 2013
+
+
+build_script:
+#
+# Autoconf based in-source build and tests under Cygwin using gcc
+#
+
+# 32-bit cygwin build
+- C:\cygwin\bin\sh -c "export PATH=/usr/bin:/usr/local/bin:$PATH && ./buildconf"
+- C:\cygwin\bin\sh -c "export PATH=/usr/bin:/usr/local/bin:$PATH && ./configure"
+- C:\cygwin\bin\sh -c "export PATH=/usr/bin:/usr/local/bin:$PATH && make"
+- C:\cygwin\bin\sh -c "export PATH=/usr/bin:/usr/local/bin:$PATH && make check"
+- C:\cygwin\bin\sh -c "export PATH=/usr/bin:/usr/local/bin:$PATH && make distclean"
+
+# 64-bit cygwin build
+- C:\cygwin64\bin\sh -c "export PATH=/usr/bin:/usr/local/bin:$PATH && ./buildconf"
+- C:\cygwin64\bin\sh -c "export PATH=/usr/bin:/usr/local/bin:$PATH && ./configure"
+- C:\cygwin64\bin\sh -c "export PATH=/usr/bin:/usr/local/bin:$PATH && make"
+- C:\cygwin64\bin\sh -c "export PATH=/usr/bin:/usr/local/bin:$PATH && make check"
+- C:\cygwin64\bin\sh -c "export PATH=/usr/bin:/usr/local/bin:$PATH && make distclean"
+
+# 32-bit cygwin build
+- C:\cygwin\bin\sh -c "export PATH=/usr/bin:/usr/local/bin:$PATH && ./buildconf"
+- C:\cygwin64\bin\sh -c "export PATH=/usr/bin:/usr/local/bin:$PATH && ./configure --host=i686-w64-mingw32"
+- C:\cygwin64\bin\sh -c "export PATH=/usr/bin:/usr/local/bin:$PATH && make"
+- C:\cygwin64\bin\sh -c "export PATH=/usr/bin:/usr/local/bin:$PATH && make check"
+- C:\cygwin64\bin\sh -c "export PATH=/usr/bin:/usr/local/bin:$PATH && make distclean"
+
+# 32-bit cygwin build
+- C:\cygwin64\bin\sh -c "export PATH=/usr/bin:/usr/local/bin:$PATH && ./buildconf"
+- C:\cygwin64\bin\sh -c "export PATH=/usr/bin:/usr/local/bin:$PATH && ./configure --host=x86_64-w64-mingw32"
+- C:\cygwin64\bin\sh -c "export PATH=/usr/bin:/usr/local/bin:$PATH && make"
+- C:\cygwin64\bin\sh -c "export PATH=/usr/bin:/usr/local/bin:$PATH && make check"
+- C:\cygwin64\bin\sh -c "export PATH=/usr/bin:/usr/local/bin:$PATH && make distclean"
