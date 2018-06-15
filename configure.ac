@@ -200,6 +200,16 @@ AC_ARG_ENABLE(whirlpool,
 , 
 AC_DEFINE(ENABLE_WHIRLPOOL, 1, "Whirlpool Algorithm"))
 
+# Check for windows specific needs
+AS_CASE([x$host],
+	[x*-*cygwin*|x*-*-mingw*], [
+	AC_CHECK_PROGS([WINDRES], [windres $host-windres])
+	use_version_rc=true
+	]
+)
+
+AM_CONDITIONAL(USE_VERSION_RC, test x$use_version_rc = xtrue)
+
 AC_CONFIG_FILES([Makefile
 		 mhash.pc
 		 mhash.spec

@@ -22,12 +22,21 @@ TIGER = tiger.c tiger_sboxes.c mhash_tiger.h
 MISCELLANEOUS = haval.c mhash_haval.h gosthash.c mhash_gost.h \
 		whirlpool.c mhash_whirlpool.h snefru.c mhash_snefru.h
 
+if USE_VERSION_RC
+VERSION_RC_FLAG = -Wl,version.o
+VERSION_RC_OBJS = version.o
+endif
+
+libmhash_la_DEPENDENCIES = $(VERSION_RC_OBJS)
 libmhash_la_SOURCES = $(FRAMEWORK) $(KEYGEN) $(CRC) $(MD_SERIES) \
 			$(SHA_SERIES) $(TIGER) $(MISCELLANEOUS)
 
-libmhash_la_LDFLAGS = -version-info 2:1 -no-undefined
+libmhash_la_LDFLAGS = -version-info 2:1 -no-undefined $(VERSION_RC_FLAG)
 
-EXTRA_DIST = libmhash.sym
+%.o : %.rc
+	$(WINDRES) $< $@
+
+EXTRA_DIST = libmhash.sym version.rc
 
 dist-hook:
 	find $(distdir) -name CVS -o -name .cvsignore | xargs rm -rf
